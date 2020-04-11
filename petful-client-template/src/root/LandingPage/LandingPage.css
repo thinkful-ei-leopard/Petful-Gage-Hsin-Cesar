@@ -1,0 +1,44 @@
+#Landing-Page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#Landing-Page-description {
+  max-width: 80%;
+  margin: 2rem 0;
+  font-size: 1.6rem;
+}
+
+#Landing-Page-puppies {
+  max-width: 80%;
+  height: auto;
+}
+
+#Landing-Page-button {
+  font-size: 1.9rem;
+  text-decoration: none;
+  margin: 2rem;
+  padding: .5rem .75rem;
+  background-color: darkcyan;
+  color: white;
+  border-radius: .5rem;
+}
+
+#Landing-Page-button:hover {
+  cursor: pointer;
+  color: lightgray;
+}
+
+@media screen and (min-width: 55rem) {
+  #Landing-Page-puppies {
+    max-width: 44rem;
+  }
+}
+
+@media screen and (min-width: 93.75rem) {
+  #Landing-Page-description {
+    max-width: 75rem;
+  }
+}

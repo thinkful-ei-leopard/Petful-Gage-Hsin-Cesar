@@ -1,0 +1,19 @@
+#Pet {
+  padding: 1rem;
+  border: .3rem solid darkcyan;
+  border-radius: .25rem;
+}
+
+#Pet > h3 {
+  font-size: 2rem;
+  margin: .25rem 0;
+}
+
+#Pet > p {
+  font-size: 1.3rem;
+  margin: .25rem 0;
+}
+
+#Pet > img {
+  max-width: 80%;
+}

@@ -1,0 +1,18 @@
+header {
+  height: 50px;
+  background-color: darkcyan;
+  color: whitesmoke;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#Header-link {
+  font-size: 36px;
+  text-decoration: none;
+  color: white;
+} 
+
+#Header-link:hover {
+  color: lightgray;
+}
