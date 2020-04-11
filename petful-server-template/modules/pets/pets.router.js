@@ -1,17 +1,23 @@
-const express = require('express')
-const json = require('body-parser').json()
+const express = require('express');
+const json = require('body-parser').json();
 
-const Pets = require('./pets.service')
-const People = require('../people/people.service')
+const Pets = require('./pets.service');
+const People = require('../people/people.service');
 
-const router = express.Router()
+const petsRouter = express.Router();
 
-router.get('/', (req, res) => {
+petsRouter.get('/', (req, res) => {
   // Return all pets currently up for adoption.
-})
+  const pet = Pets.get();
+  res.json(pet);
+});
 
-router.delete('/', json, (req, res) => {
+petsRouter.delete('/', json, (req, res) => {
   // Remove a pet from adoption.
-})
+  const pet = Pets.dequeue();
+  const adopter = People.dequeue();
 
-module.exports = router
+  res.json({pet, adopter});
+});
+
+module.exports = petsRouter;

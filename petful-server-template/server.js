@@ -1,6 +1,6 @@
-const app = require('./modules/app/app')
-const port = process.env.PORT || 8000
+const app = require('./modules/app');
+const {PORT} = require('./config');
 
-app.listen(port, () => {
-  console.log(`[petful-server] Listening on ${ port }.`)
-})
+app.listen(PORT, () => {
+  console.log(`[petful-server] Listening on ${ PORT }.`);
+});

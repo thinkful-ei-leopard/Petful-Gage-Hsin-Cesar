@@ -1,25 +1,28 @@
-const Queue = require('../queue/Queue')
-const store = require('../../store')
+const Queue = require('../queue/Queue');
+const store = require('../../store');
 
 // Set up initial data.
 // --------------------
 
-const pets = {
-  cats: new Queue(),
-  dogs: new Queue()
-}
+const animals = new Queue;
 
-store.cats.forEach(cat => pets.cats.enqueue(cat))
-store.dogs.forEach(dog => pets.dogs.enqueue(dog))
+let index = 0;
+while (store.cats[index] || store.dogs[index]) {
+  animals.enqueue(store.dogs[index]);
+  animals.enqueue(store.cats[index]);
+  index++;
+}
 
 // --------------------
 
 module.exports = {
   get() {
     // Return the pets next in line to be adopted.
+    return animals.show();
   },
 
-  dequeue(type) {
+  dequeue() {
     // Remove a pet from the queue.
+    return animals.dequeue();
   }
-}
+};

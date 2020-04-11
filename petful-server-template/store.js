@@ -1,8 +1,10 @@
 module.exports = {
   people: [
-    'Randy Lahey',
-    'Trevor Cory',
-    'Jim Lahey'
+    'Randy Marsh ',
+    'Eric Cartman ',
+    'Michael Jefferson ',
+    'John Doe ',
+    'John Doe 1 ',
   ],
 
   dogs: [
@@ -227,4 +229,4 @@ module.exports = {
       story: 'Found in neighborhood'
     }
   ]
-}
+};
