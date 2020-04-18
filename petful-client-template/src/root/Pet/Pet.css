@@ -1,4 +1,5 @@
 #Pet {
+  display: inline-block;
   padding: 1rem;
   border: .3rem solid darkcyan;
   border-radius: .25rem;
@@ -10,10 +11,11 @@
 }
 
 #Pet > p {
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin: .25rem 0;
 }
 
 #Pet > img {
-  max-width: 80%;
+  max-width: 60%;
 }
+

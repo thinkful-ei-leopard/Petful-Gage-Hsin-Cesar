@@ -5,15 +5,24 @@ import './PeopleList.css'
 export default class PeopleList extends Component {
     state={
         clicked: false,
-        newPerson:null,
+        newPerson:'',
     }
 
     handleclicked=(event)=>{
         event.preventDefault();
+     
         this.setState({
             clicked:true
         })
-    }
+    } 
+
+    handleCancel=(event)=>{
+        event.preventDefault();
+     
+        this.setState({
+            clicked:false
+        })
+    } 
 
     addPerson=(event)=>{
         event.preventDefault();
@@ -24,29 +33,47 @@ export default class PeopleList extends Component {
         .then(data =>{
             newPerson.value='';
             this.props.createDataSuccess(data)
+            this.setState({
+                clicked: false 
+            })
         })
-
         
     }
 
     generatePeopleJSX(person, index) {
         console.log(person)
+        if(index > 4 ){
+        return;
+        }
+        else if (index === 0  ) {
         return (
-            <div key={index} className='People-List-item'>{index + 1}. {person}</div>
-        )
+        <div  key={index}>
+        <div className='People-List first'>{index + 1}. {person}</div>
+        <button type='onClick' >Adopt</button>
+        </div>)
+        }else{
+            return (
+                <div key={index} className='People-List'>{index + 1}. {person}</div>
+            )
+        }
+         
     }
 
     render() {
+        
         return (
             <div id='People-List'>
-                <h2>Current Adopter Queue</h2>
+                <h2>Current Adopter List</h2>
+                
                 {Object.values(this.props.people).map((x, index) => this.generatePeopleJSX(x, index))}
-                <button onClick={this.handleclicked}> Join</button>
+                
+                <button className='join' onClick={this.handleclicked}> Join</button>
                 {this.state.clicked 
                     ? <form onSubmit={this.addPerson}>
-                            <label htmlFor='newPerson'>Name:</label>
-                            <input type='text' name='newPerson' id='newPerson'></input>
+                            <label htmlFor='newPerson'>Your Name:</label>
+                            <input type='text' name='newPerson' id='newPerson' required></input><br></br>
                             <button type='submit'>submit</button>
+                            <button type='button' onClick={this.handleCancel}>cancel</button>
                         </form>
                     : <div></div>
                 }

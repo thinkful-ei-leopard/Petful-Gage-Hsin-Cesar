@@ -1,7 +1,43 @@
-#People-List > h2 {
+#People-List{
+  float: right;
+  margin-right: 30%;
+}
+ #People-List > h2 {
   font-size: 2rem;
 }
 
-.People-List-item {
+.People-List {
   font-size: 1.6rem;
+}
+
+.first {
+  display: inline-block;
+}
+
+button {
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin: 2rem;
+  padding: .5rem .75rem;
+  background-color: darkcyan;
+  color: white;
+  border-radius: .5rem;
+}
+button :hover {
+  cursor: pointer;
+  color: lightgray;
+}
+
+.join{
+  display: block;
+  margin-left: 0;
+}
+form{
+  padding: .7rem;
+  border: .3rem solid darkcyan;
+  border-radius: .25rem;
+}
+
+label{
+  font-size: 1.3rem ;
 }

@@ -15,12 +15,7 @@ export default class AdoptionPage extends React.Component{
     } 
   }
 
-  componentDidMount() {
-    this.timerId= setInterval(
-      ()=>this.tick(), 
-      5000
-    );
-
+  componentDidMount() {   
     DataApiService.getPet()
       .then(petData=> this.setState({
             petData
@@ -39,12 +34,16 @@ export default class AdoptionPage extends React.Component{
       .catch(res=> this.setState({
           error:JSON.stringify(res.error)
       }))
-      
+  
+    this.timerId= setInterval(
+      ()=>this.tick(), 
+      5000
+    )
+     
   }
  
   componentWillUnmount(){
-   clearInterval(this.timerId)
-  
+     clearInterval(this.timerId)
   }
 
   tick(){
@@ -52,12 +51,12 @@ export default class AdoptionPage extends React.Component{
       date: new Date()
     })
     DataApiService.deletePeople()
-      .then(people => DataApiService.getPeople()
+    DataApiService.getPeople()
       .then(peopleData=> {
         this.setState({
           peopleData
       })
-      }))
+      })    
   }
 
   createDataSuccess = (data) => {
