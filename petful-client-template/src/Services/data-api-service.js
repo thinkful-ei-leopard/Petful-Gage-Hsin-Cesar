@@ -7,6 +7,7 @@ const DataApiService={
                             ? res.json().then(e=> Promise.reject(e))
                             : res.json()
                     )  
+                    
      
         },
     postPeople(name) {

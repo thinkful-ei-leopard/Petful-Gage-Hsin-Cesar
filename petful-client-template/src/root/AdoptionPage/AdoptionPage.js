@@ -20,7 +20,7 @@ export default class AdoptionPage extends React.Component{
       ()=>this.tick(), 
       5000
     );
-    
+
     DataApiService.getPet()
       .then(petData=> this.setState({
             petData
@@ -28,28 +28,36 @@ export default class AdoptionPage extends React.Component{
       .catch(res=> this.setState({
             error:JSON.stringify(res.error)
           }))
-
+  
     DataApiService.getPeople()
       .then(peopleData=> {
         this.setState({
           peopleData
       })
+      
       }) 
       .catch(res=> this.setState({
           error:JSON.stringify(res.error)
       }))
+      
   }
  
   componentWillUnmount(){
-    clearInterval(this.timerId)
-    DataApiService.deletePeople()
-      .then(person => DataApiService.postPeople(person))
+   clearInterval(this.timerId)
+  
   }
 
   tick(){
     this.setState({
       date: new Date()
     })
+    DataApiService.deletePeople()
+      .then(people => DataApiService.getPeople()
+      .then(peopleData=> {
+        this.setState({
+          peopleData
+      })
+      }))
   }
 
   createDataSuccess = (data) => {
