@@ -6,6 +6,7 @@ export default class PeopleList extends Component {
     state={
         clicked: false,
         newPerson:'',
+        confirm: false
     }
 
     handleclicked=(event)=>{
@@ -34,10 +35,25 @@ export default class PeopleList extends Component {
             newPerson.value='';
             this.props.createDataSuccess(data)
             this.setState({
-                clicked: false 
+                clicked: false,
+                confirm:false
             })
         })
         
+    }
+
+    sendConfirmation=(event)=>{
+        event.preventDefault();
+        this.setState({
+            confirm:true
+        })
+    }
+
+    handleClose=(event)=>{
+        event.preventDefault();
+        this.setState({
+            confirm:false
+        })
     }
 
     generatePeopleJSX(person, index) {
@@ -49,7 +65,11 @@ export default class PeopleList extends Component {
         return (
         <div  key={index}>
         <div className='People-List first'>{index + 1}. {person}</div>
-        <button type='onClick' >Adopt</button>
+        <button type='button' onClick={this.sendConfirmation}>Adopt</button>
+        {this.state.confirm && 
+        <div>
+            <h2>Congratulation!</h2><button type='button' onClick={this.handleClose}>close</button>
+        </div>}
         </div>)
         }else{
             return (
@@ -77,6 +97,7 @@ export default class PeopleList extends Component {
                         </form>
                     : <div></div>
                 }
+
             </div>
         )
     }
