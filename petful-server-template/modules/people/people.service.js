@@ -5,7 +5,7 @@ const store = require('../../store');
 // --------------------
 
 const People = new Queue();
-store.people.forEach(person => People.enqueue(person));
+ store.people.forEach(person => People.enqueue(person));
 
 // --------------------
 

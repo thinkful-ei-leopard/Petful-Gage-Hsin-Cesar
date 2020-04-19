@@ -8,6 +8,7 @@ const peopleRouter = express.Router();
 peopleRouter.get('/', (req, res) => {
   // Return all the people currently in the queue.
   res.json(People.all());
+  
 });
 
 peopleRouter.post('/', json, (req, res) => {
